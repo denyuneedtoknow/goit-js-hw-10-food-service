@@ -28,8 +28,6 @@ function themeSwitcher(e) {
         siteTheme.classList.add(Theme.LIGHT)
 
     }
-    const currentTheme = JSON.stringify(siteTheme.classList.value);
-    console.log(currentTheme);
     localStorage.setItem('currentTheme', siteTheme.classList.value)
 
 }
