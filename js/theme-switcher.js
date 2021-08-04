@@ -1,17 +1,14 @@
-const switcher = document.querySelector('#theme-switch-toggle')
-const siteTheme = document.querySelector('body')
 
 
-const Theme = {
-    LIGHT: 'light-theme',
-    DARK: 'dark-theme',
-};
+import { refs } from './variables.js'
+
+
 function themeLoader() {
-    if (localStorage.getItem('currentTheme') === Theme.DARK) {
-        siteTheme.classList.add(Theme.DARK)
-        switcher.checked = true
+    if (localStorage.getItem('currentTheme') === refs.Theme.DARK) {
+        refs.siteTheme.classList.add(refs.Theme.DARK)
+        refs.switcher.checked = true
     } else {
-        siteTheme.classList.add(Theme.LIGHT)
+        refs.siteTheme.classList.add(refs.Theme.LIGHT)
     }
 }
 
@@ -19,20 +16,21 @@ themeLoader()
 
 function themeSwitcher(e) {
     e.preventDefault()
-    if (siteTheme.classList.contains(Theme.LIGHT)) {
-        siteTheme.classList.remove(Theme.LIGHT)
-        siteTheme.classList.add(Theme.DARK)
+    if (refs.siteTheme.classList.contains(refs.Theme.LIGHT)) {
+        refs.siteTheme.classList.remove(refs.Theme.LIGHT)
+        refs.siteTheme.classList.add(refs.Theme.DARK)
 
     } else {
-        siteTheme.classList.remove(Theme.DARK)
-        siteTheme.classList.add(Theme.LIGHT)
+        refs.siteTheme.classList.remove(refs.Theme.DARK)
+        refs.siteTheme.classList.add(refs.Theme.LIGHT)
 
     }
-    localStorage.setItem('currentTheme', siteTheme.classList.value)
+    localStorage.setItem('currentTheme', refs.siteTheme.classList.value)
 
 }
 
-switcher.addEventListener('change', themeSwitcher)
+refs.switcher.addEventListener('change', themeSwitcher)
+
 
 
 
